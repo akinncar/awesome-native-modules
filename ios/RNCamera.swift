@@ -10,6 +10,8 @@ class RNCamera : UIView {
   let sessionQueue = dispatch_queue_serial_t(label: "cameraQueue")
   let session = AVCaptureSession()
   var previewLayer: AVCaptureVideoPreviewLayer
+  
+  var stillImageOutput: AVCapturePhotoOutput!
 
   required init?(coder: NSCoder) {
     previewLayer = AVCaptureVideoPreviewLayer(session: session)
@@ -25,6 +27,28 @@ class RNCamera : UIView {
 
   override func layoutSubviews() {
     super.layoutSubviews()
+    
+    session.sessionPreset = .medium
+    session.startRunning()
+    
+    guard let backCamera = AVCaptureDevice.default(for: AVMediaType.video)
+        else {
+            print("Unable to access back camera!")
+            return
+    }
+    
+    do {
+        var input = try AVCaptureDeviceInput(device: backCamera)
+        stillImageOutput = AVCapturePhotoOutput()
+        if session.canAddInput(input) && session.canAddOutput(stillImageOutput) {
+            session.addInput(input)
+            session.addOutput(stillImageOutput)
+        }
+    }
+    catch let error  {
+        print("Error Unable to initialize back camera:  \(error.localizedDescription)")
+    }
+
     previewLayer.frame = bounds
     backgroundColor = UIColor.blue
     layer.insertSublayer(previewLayer, at: 0)
@@ -43,5 +67,6 @@ class RNCamera : UIView {
   private func initialize() {
     previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
     previewLayer.needsDisplayOnBoundsChange = true
+    previewLayer.connection?.videoOrientation = .portrait
   }
 }
