@@ -7,7 +7,7 @@
 
 @implementation RNTMapManager
 
-RCT_EXPORT_MODULE(RNTMap)
+RCT_EXPORT_MODULE(RNMap)
 
 - (UIView *)view
 {
