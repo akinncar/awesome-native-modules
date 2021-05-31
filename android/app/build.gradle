@@ -120,6 +120,16 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  */
 def enableHermes = project.ext.react.get("enableHermes", false);
 
+/**
+ * Get local.properties variables
+ *
+ * With this line you can import local.properties secret variables
+ * using properties.getProperty('YOUR_KEY') like MAPS_API_KEY key for RNMap
+ */
+Properties properties = new Properties()
+InputStream inputStream = project.rootProject.file('local.properties').newDataInputStream() ;
+properties.load( inputStream )
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
@@ -134,6 +144,10 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [
+            appAuthRedirectScheme: 'com.redirectScheme.comm',
+            MAPS_API_KEY: properties.getProperty('MAPS_API_KEY')
+        ]
     }
     splits {
         abi {
@@ -190,6 +204,12 @@ dependencies {
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
     }
+
+    // RNMap
+    implementation "com.google.android.gms:play-services-base:17.0.0"
+    implementation "com.google.android.gms:play-services-maps:17.0.0"
+    implementation "com.google.android.gms:play-services-location:17.0.0"
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
 
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.flipper'
