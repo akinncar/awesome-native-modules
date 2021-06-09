@@ -1,6 +1,22 @@
-|   Module   |  iOS  |    Android    |
-| :---         |     :---:      |          ---: |
-| Map  | :heavy_check_mark:     | :heavy_check_mark:     |
-| Camera     | :heavy_check_mark:      | :hourglass_flowing_sand:    |
-| Share     | :x:      | :x:    |
-
+<table>
+  <tr>
+    <th>Module</th>
+    <th>iOS</th>
+    <th>Android</th>
+  </tr>
+  <tr>
+    <td>Camera</td>
+    <td>:heavy_check_mark:</td>
+    <td>:hourglass_flowing_sand:</td>
+  </tr>
+  <tr>
+    <td>Map</td>
+    <td>:heavy_check_mark:</td>
+    <td>:heavy_check_mark:</td>
+  </tr>
+  <tr>
+    <td>Share</td>
+    <td>:heavy_check_mark:</td>
+    <td>:x:</td>
+  </tr>
+</table>

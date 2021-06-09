@@ -38,7 +38,7 @@ class RNCamera : UIView {
     }
     
     do {
-        var input = try AVCaptureDeviceInput(device: backCamera)
+      let input = try AVCaptureDeviceInput(device: backCamera)
         stillImageOutput = AVCapturePhotoOutput()
         if session.canAddInput(input) && session.canAddOutput(stillImageOutput) {
             session.addInput(input)
