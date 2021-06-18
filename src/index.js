@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, SafeAreaView, StatusBar } from 'react-native';
-// import MapView from './native/MapView';
-// import RNCamera from './native/RNCamera';
+import MapView from './native/MapView';
+import RNCamera from './native/RNCamera';
 import RNShare from './native/RNShare';
 
 const App = () => {
