@@ -1,3 +1,5 @@
-import {NativeModules} from 'react-native';
-const {RNShare} = NativeModules;
+import { NativeModules } from 'react-native';
+
+const { RNShare } = NativeModules;
+
 export default RNShare;
