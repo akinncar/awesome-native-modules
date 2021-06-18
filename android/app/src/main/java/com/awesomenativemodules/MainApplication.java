@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.awesomenativemodules.RNMap.RNMapPackage;
+import com.awesomenativemodules.RNShare.RNSharePackage;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
           packages.add(new RNMapPackage());
+          packages.add(new RNSharePackage());
           return packages;
         }
 

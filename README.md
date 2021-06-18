@@ -29,7 +29,7 @@ This board shows what features are available and what features are in the develo
   <tr>
     <td>Share</td>
     <td>:heavy_check_mark:</td>
-    <td>:x:</td>
+    <td>:heavy_check_mark:</td>
   </tr>
 </table>
 
